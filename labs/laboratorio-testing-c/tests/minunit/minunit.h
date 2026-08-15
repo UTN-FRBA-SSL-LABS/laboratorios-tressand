@@ -25,11 +25,11 @@ static int mu_tests_fail   = 0;
         int _esp = (int)(esperado);                                             \
         int _obt = (int)(obtenido);                                             \
         if (_esp == _obt) {                                                     \
-            printf("  [OK]   %s == %d\n", #obtenido, _obt);                    \
+            printf("  [OK]   %s == %d\n", #obtenido, _obt);                     \
             mu_tests_ok++;                                                      \
         } else {                                                                \
-            printf("  [FAIL] %s => esperado %d, obtenido %d  (linea %d)\n",    \
-                   #obtenido, _esp, _obt, __LINE__);                            \
+            printf("  [FAIL] %s => esperado %d, obtenido %d  (linea %d)\n",     \
+                #obtenido, _esp, _obt, __LINE__);                               \
             mu_tests_fail++;                                                    \
         }                                                                       \
     } while (0)
@@ -38,17 +38,17 @@ static int mu_tests_fail   = 0;
     do {                                                                        \
         mu_tests_run++;                                                         \
         if (condicion) {                                                        \
-            printf("  [OK]   %s\n", #condicion);                               \
+            printf("  [OK]   %s\n", #condicion);                                \
             mu_tests_ok++;                                                      \
         } else {                                                                \
-            printf("  [FAIL] %s es falso  (linea %d)\n", #condicion, __LINE__);\
+            printf("  [FAIL] %s es falso  (linea %d)\n", #condicion, __LINE__); \
             mu_tests_fail++;                                                    \
         }                                                                       \
     } while (0)
 
 #define RESUMEN()                                                               \
     do {                                                                        \
-        printf("\n--- %d/%d tests OK", mu_tests_ok, mu_tests_run);             \
+        printf("\n--- %d/%d tests OK", mu_tests_ok, mu_tests_run);              \
         if (mu_tests_fail > 0)                                                  \
             printf(", %d FALLARON", mu_tests_fail);                             \
         printf(" ---\n");                                                       \
