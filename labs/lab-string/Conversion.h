@@ -18,5 +18,7 @@ int ToInteger(const char *s);
 
 /* TODO: agregar una operacion a definir libremente.
  * Documentar Pre, Post y firma antes del prototipo. */
+int IsDigit(const char c);
+int IsInteger(const char *s);
 
 #endif

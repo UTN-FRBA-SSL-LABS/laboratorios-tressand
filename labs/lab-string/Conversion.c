@@ -14,9 +14,17 @@ int ToInteger(const char *s) {
     if (*s == '-') { signo = -1; s++; }
     for (; *s != '\0'; s++)
         resultado = resultado * 10 + (*s - '0');
-    return signo; /* bug: falta multiplicar signo por resultado */
+    return signo * resultado; /* bug: falta multiplicar signo por resultado */
 }
 
 /* ── Operacion libre ─────────────────────────────────────────────────────── */
 
-/* TODO */
+int IsDigit(const char c) { return (c >= '0' && c <= '9'); }
+
+int IsInteger(const char *s) {
+    if(!IsDigit(*s) && *s != '-') return -1;
+    s++;
+    for(; *s!= '\0'; s++)
+        if(!IsDigit(*s)) return 0;
+    return 1;
+}
