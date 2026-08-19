@@ -28,18 +28,7 @@ cobertura: src/carrito.c tests/test_unitarios.c
 
 # ── Limpieza ──────────────────────────────────────────────────────────────────
 clean:
-	rm -f programa test_unitarios test_integracion test_cobertura *.o
-	rm -f programa_ci test_integracion_ci test_unitarios_ci
+	rm -f programa test_unitarios test_integracion test_cobertura
 	rm -f *.gcda *.gcno *.gcov src/*.gcda src/*.gcno
 
-# ── Run ───────────────────────────────────────────────────────────────────────
-run_p: programa
-	./programa
-
-run_tu: test_unitarios
-	./test_unitarios
-
-run_ti: test_integracion
-	./test_integracion
-
-.PHONY: test cobertura clean run_p run_tu run_ti
+.PHONY: test cobertura clean
